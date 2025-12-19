@@ -6,6 +6,8 @@ A Python-based project to crawl product data from Tiki.vn using **asyncio** and 
 
 ---
 
+
+
 ## 🔹 Features
 
 - Load product IDs from **CSV files** stored locally or in **S3 bucket**.
@@ -21,6 +23,17 @@ A Python-based project to crawl product data from Tiki.vn using **asyncio** and 
 
 ---
 
+Batch Processing
+
+Large CSV files are split into smaller batches for better processing:
+Use batch.py to split a file into smaller CSVs:
+python src/batch.py 
+Each small batch is then uploaded to S3 and sent to SQS.
+This ensures:
+No worker gets overwhelmed
+Rate limits are respected
+
+Progress can resume easily if a batch fails
 ## 🔹 Requirements
 
 - Python 3.9+
@@ -28,6 +41,7 @@ A Python-based project to crawl product data from Tiki.vn using **asyncio** and 
   - S3 bucket for storing CSV batches
   - SQS queue for batch processing
 - Python packages:
+
 
 ```bash
 pip install aiohttp boto3
