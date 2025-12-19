@@ -21,23 +21,6 @@ A Python-based project to crawl product data from Tiki.vn using **asyncio** and 
 
 ---
 
-## 🔹 Project Structure
-
-pro1/
-├─ src/
-│ ├─ s3.py # Upload CSV batches to S3 and push to SQS
-│ ├─ worker_sqs.py # Async worker to fetch product details from Tiki API using SQS
-│ └─ fetch_async.py # Local async crawler for testing without SQS
-├─ data/
-│ └─ products_.json # Output product data
-├─ batch_.csv # Input CSVs containing product IDs
-└─ README.md
-
-yaml
-Copy code
-
----
-
 ## 🔹 Requirements
 
 - Python 3.9+
